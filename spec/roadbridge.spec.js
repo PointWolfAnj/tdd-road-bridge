@@ -73,4 +73,87 @@ describe("Roadbridge", function () {
 
     expect(result).toEqual(expected)
   });
+
+  it("RemoveCarFromBridge decrease counter when cars leave on bridge", function () {
+    
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.removeCarFromBridge()
+
+
+    const expected = 3
+
+    const result = bridge.getCarsOnBridge()
+
+    expect(result).toEqual(expected)
+  });
+
+  it("RemoveCarFromBridge decrease counter when cars leave on bridge", function () {
+    
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.removeCarFromBridge()
+
+
+    const expected = 3
+
+    const result = bridge.getCarsOnBridge()
+
+    expect(result).toEqual(expected)
+  });
+
+  it("ChangeinCapacity prevent cars from entering bridge when at full capacity", function () {
+    
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    
+    bridge.changeCapacity(3)
+
+    bridge.addCarToBridge()
+
+
+    const expected = 3
+
+    const result = bridge.getCarsOnBridge()
+
+    expect(result).toEqual(expected)
+  });
+
+  it("CloseBridgeCompletely no cars allowed on", function () {
+    
+    bridge.addCarToBridge()
+    bridge.changeCapacity(0)
+    bridge.removeCarFromBridge()
+    bridge.addCarToBridge() 
+
+    const expected = 0
+
+    const result = bridge.getCarsOnBridge()
+
+    expect(result).toEqual(expected)
+  });
+
+  it("reOpenBridge after closure allowing only one to car to enter", function () {
+    
+    bridge.changeCapacity(1) 
+    bridge.addCarToBridge()
+    
+
+
+    const expected = 1
+
+    const result = bridge.getCarsOnBridge()
+
+    expect(result).toEqual(expected)
+  });
+
+
+  
+
+  
 });

@@ -19,6 +19,16 @@ class RoadBridge {
     this.numCars++
   }
 
+  removeCarFromBridge() {
+    return this.numCars--
+  }
+
+  changeCapacity(newCapacity) {
+    return this.capacity = newCapacity
+  }
+
+  
+
 }
 
 module.exports = RoadBridge
