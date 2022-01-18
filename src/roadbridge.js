@@ -27,7 +27,13 @@ class RoadBridge {
     return this.capacity = newCapacity
   }
 
-  
+  reOpenBridge(newCapacity) {
+    return this.capacity = newCapacity
+  }
+
+  reOpenBridge() {
+    return (this.capacity = DEFAULT_CAPACITY);
+  }
 
 }
 

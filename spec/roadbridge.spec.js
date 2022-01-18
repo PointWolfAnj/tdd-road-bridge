@@ -140,7 +140,8 @@ describe("Roadbridge", function () {
 
   it("reOpenBridge after closure allowing only one to car to enter", function () {
     
-    bridge.changeCapacity(1) 
+    bridge.changeCapacity(0) 
+    bridge.reOpenBridge(1)
     bridge.addCarToBridge()
     
 
@@ -151,6 +152,24 @@ describe("Roadbridge", function () {
 
     expect(result).toEqual(expected)
   });
+
+  it("reOpenBridge after closure allowing only multiple cars to enter", function () {
+    
+    bridge.changeCapacity(0) 
+    bridge.reOpenBridge()
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+    bridge.addCarToBridge()
+
+
+    const expected = 4
+
+    const result = bridge.getCarsOnBridge()
+
+    expect(result).toEqual(expected)
+  });
+
 
 
   
